@@ -1,0 +1,150 @@
+// Query: Create 3 new dojos
+
+from dojo_ninjas_app import *
+Dojo.objects.create(loc_name="Dojo 1",city="youshort vil",state="whotall")
+Dojo.objects.create(loc_name="Dojo 2",city="High Town",state="CA")
+Dojo.objects.create(loc_name="Dojo 3",city="Bowie",state="MD")
+
+
+// Query: Delete the 3 dojos you just created
+
+c = Dojo.objects.all()
+c.delete()
+Dojo.objects.all()
+
+
+
+// Query: Create 3 more dojos
+
+Dojo.objects.create(loc_name="Dojo 4",city="Jumpstreet",state="ME")
+Dojo.objects.create(loc_name="Dojo 5",city="Low Town",state="TX")
+Dojo.objects.create(loc_name="Dojo 6",city="Old Town Bowie",state="MD")
+
+
+// Query: Create 3 ninjas that belong to the first dojo
+
+Ninja.objects.create(dojo=Dojo.objects.get(id=4),first_name="Todd",last_name="Leolie")
+Ninja.objects.create(dojo=Dojo.objects.get(id=4),first_name="Abby",last_name="Bock")
+Ninja.objects.create(dojo=Dojo.objects.get(id=4),first_name="Feas",last_name="Rog")
+
+
+// Query: Create 3 ninjas that belong to the second dojo
+
+Ninja.objects.create(dojo=Dojo.objects.get(id=5),first_name="Violet",last_name="Shaw")
+Ninja.objects.create(dojo=Dojo.objects.get(id=5),first_name="Daren",last_name="Banks")
+Ninja.objects.create(dojo=Dojo.objects.get(id=5),first_name="Dwayne",last_name="White")
+
+
+// Query: Create 3 ninjas that belong to the third dojo
+
+Ninja.objects.create(dojo=Dojo.objects.get(id=6),first_name="Jason",last_name="Joseo")
+Ninja.objects.create(dojo=Dojo.objects.get(id=6),first_name="Jack",last_name="Black")
+Ninja.objects.create(dojo=Dojo.objects.get(id=6),first_name="Link",last_name="Inn")
+
+
+// Query: Retrieve all the ninjas from the first dojo
+
+Dojo.objects.first().ninjas.all()
+
+
+// Query: Retrieve all the ninjas from the last dojo
+
+Dojo.objects.last().ninjas.all()
+
+
+// Query: Retrieve the last ninja's dojo
+
+Ninja.objects.last().dojo
+Ninja.objects.last().dojo.__dict__
+exit()
+
+
+// Query: Create a new dojo
+
+from dojo_ninjas_app.models import Dojo, Ninja
+Dojo.objects.create(loc_name="Dojo 7",city="Sky High",state="Sky",desc="A place High High in the sky Lol Fr!")
+exit()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
