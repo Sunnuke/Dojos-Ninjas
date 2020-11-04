@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="bodyBox">
+        <div class="topBox">
+            <div class="topLeft">
+                <h1>Add a Dojo</h1>
+                <div class="userInputs">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <input type="text" name="name" id="name" required>
+                        <input type="text" name="city" id="city" required>
+                        <input type="text" name="state" id="state" required>
+                        <button type="submit">Add</button>
+                    </form>
+                </div>
+            </div>
+            <div class="topRight">
+                <h1>Add a Ninja</h1>
+                <div class="userInputs">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <input type="text" name="first_name" id="first_name" required>
+                        <input type="text" name="last_name" id="last_city" required>
+                        <select name="dojo" id="dojo">
+                            <!-- for loop -->
+                                <option value=""></option>
+                            
+                        </select>
+                        <button type="submit">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="bottomBox">
+            <h1>All the Dojos</h1>
+            <!-- for loop -->
+        </div>
+    </div>
+</body>
+</html>
