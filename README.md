@@ -1,0 +1,2 @@
+# Dojos-Ninjas
+For this project I will be practicing more basic Object-Relational Mapper(ORM) and create two Entity Relationship Diagrams(ERD) with these concepts being a "user's database" with there information and location. The final result should be able to take user input and promptly display it on the template and have all users who input the same location be grouped together in a list type format.
