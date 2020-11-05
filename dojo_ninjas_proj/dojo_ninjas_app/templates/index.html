@@ -15,10 +15,10 @@
                 <div class="userInputs">
                     <form action="" method="POST">
                         {% csrf_token %}
-                        <input type="text" name="name" id="name" required>
-                        <input type="text" name="city" id="city" required>
-                        <input type="text" name="state" id="state" required>
-                        <button type="submit">Add</button>
+                        <input type="text" name="name" id="name" placeholder="Name of Dojo" required>
+                        <input type="text" name="city" id="city" placeholder="City" required>
+                        <input type="text" name="state" id="state" placeholder="State  ex. CA" required><br>
+                        <br><button type="submit">Add</button>
                     </form>
                 </div>
             </div>
@@ -27,21 +27,32 @@
                 <div class="userInputs">
                     <form action="" method="POST">
                         {% csrf_token %}
-                        <input type="text" name="first_name" id="first_name" required>
-                        <input type="text" name="last_name" id="last_city" required>
-                        <select name="dojo" id="dojo">
+                        <input type="text" name="first_name" id="first_name" placeholder="First Name" required>
+                        <input type="text" name="last_name" id="last_city" placeholder="Last Name" required>
+                        <select name="dojo" id="dojo" required>
+                            <option value="" disabled selected>Select a Dojo</option>
                             <!-- for loop -->
-                                <option value=""></option>
-                            
-                        </select>
-                        <button type="submit">Add</button>
+                            {% for key in Dojos %}
+                                <option value="{{key.id}}">{{key.loc_name}}</option>
+                            {% endfor %}
+                        </select><br>
+                        <br><button type="submit">Add</button>
                     </form>
                 </div>
             </div>
         </div>
         <div class="bottomBox">
-            <h1>All the Dojos</h1>
-            <!-- for loop -->
+            <div class="list">
+                <h1>All the Dojos</h1>
+                {% for dojo in Dojos %}
+                    <label><strong>Ninjas at the {{dojo.loc_name}} Dojo</strong></label>
+                    <ul>
+                        {% for ninja in dojo.ninjas.all %}
+                        <li>{{ninja.first_name}} {{ninja.last_name}}</li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+            </div>
         </div>
     </div>
 </body>
