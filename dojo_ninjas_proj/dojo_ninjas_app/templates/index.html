@@ -13,7 +13,7 @@
             <div class="topLeft">
                 <h1>Add a Dojo</h1>
                 <div class="userInputs">
-                    <form action="" method="POST">
+                    <form action="process/dojo" method="POST">
                         {% csrf_token %}
                         <input type="text" name="name" id="name" placeholder="Name of Dojo" required>
                         <input type="text" name="city" id="city" placeholder="City" required>
@@ -25,7 +25,7 @@
             <div class="topRight">
                 <h1>Add a Ninja</h1>
                 <div class="userInputs">
-                    <form action="" method="POST">
+                    <form action="/process/ninja" method="POST">
                         {% csrf_token %}
                         <input type="text" name="first_name" id="first_name" placeholder="First Name" required>
                         <input type="text" name="last_name" id="last_city" placeholder="Last Name" required>
@@ -46,10 +46,16 @@
                 <h1>All the Dojos</h1>
                 {% for dojo in Dojos %}
                     <label><strong>Ninjas at the {{dojo.loc_name}} Dojo</strong></label>
+                    <form action="/deleted" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="deleted" value="{{dojo.id}}">
+                        <button type="submit">Delete Dojo</button>
+                    </form>
                     <ul>
                         {% for ninja in dojo.ninjas.all %}
                         <li>{{ninja.first_name}} {{ninja.last_name}}</li>
                         {% endfor %}
+
                     </ul>
                 {% endfor %}
             </div>
